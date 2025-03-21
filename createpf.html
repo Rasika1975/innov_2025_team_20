@@ -175,17 +175,9 @@
 
     <!-- JavaScript -->
     <script>
-        // Dark Mode Toggle
-        const toggleButton = document.getElementById('toggleDarkMode');
-        const body = document.body;
-
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            toggleButton.textContent = body.classList.contains('dark-mode') ? '☀' : '🌙';
-        });
-
+   
       // Form Submission Handling
-      document.getElementById("profileForm").addEventListener("submit", function(event) {
+      document.getElementById("profileForm").addEventListener("submit", (event)=>{
             event.preventDefault();
             alert("Profile saved successfully!");
             window.location.href = "index.html"; // Redirects to home page
