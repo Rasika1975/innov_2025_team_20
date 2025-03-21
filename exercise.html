@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise and Yoga Postures Guide</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.posture {
+    background-color: white;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #333;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercise and Yoga Postures</h1>
+    </header>
+    <main>
+        <section id="postures">
+            <article class="posture" id="yoga1">
+                <h2>Downward Dog</h2>
+                <p>Benefits: Strengthens the entire body, stretches the back and legs.</p>
+                <img src="downward_dog.jpg" alt="Downward Dog Pose">
+            </article>
+            <article class="posture" id="yoga2">
+                <h2>Tree Pose</h2>
+                <p>Benefits: Improves balance, strengthens the legs, opens the hips.</p>
+                <img src="tree_pose.jpg" alt="Tree Pose">
+            </article>
+            <!-- Add more postures as needed -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Yoga Guide</p>
+    </footer>
+</body>
+<index.js>
+    document.addEventListener("DOMContentLoaded", () => {
+        const postures = document.querySelectorAll(".posture");
+        postures.forEach(posture => {
+            posture.addEventListener("click", () => {
+                alert(You selected: ${posture.querySelector("h2").innerText});
+            });
+        });
+    });
+</index.js>
+
+
+</html>

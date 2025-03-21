@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Thumbnails</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(to right , #bbf7d0, #22c55e);
+            font-family: Arial, sans-serif;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.05);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .blogs-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .blogs-section h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+
+        .dark-mode .info-section {
+            background: #2d2d2d;
+            color: #fff;
+        }
+
+        .dark-mode .blogs-section h1 {
+            color: #fff;
+        }
+
+        /* Toggle button style */
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+      
+
+        .info-section {
+            background: #b7cea5;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞</button>
+    <div class="info-section" style="text-align: center; padding: 20px; margin-bottom: 30px;">
+        <h2>YOGA</h2>
+        <p>Yoga may have pre-Vedic origins,[c] but is first attested in the early first millennium BCE. It developed as various traditions in the eastern Ganges basin drew from a common body of practices, including Vedic elements.[7][8] Yoga-like practices are mentioned in the Rigveda[9] and a number of early Upanishads,[10][11][12][d] but systematic yoga concepts emerge during the fifth and sixth centuries BCE in ancient India's ascetic and Śramaṇa movements, including Jainism and Buddhism.[13] The Yoga Sutras of Patanjali, the classical text on Hindu yoga, samkhya-based but influenced by Buddhism, dates to the early centuries of the Common Era.[14][15][e] Hatha yoga texts began to emerge between the ninth and 11th centuries, originating in tantra.[f]</p>
+    </div>
+<div class="blogs-section">
+    <h1 class="blogs-section h1">Reference Videos</h1>
+    <div class="video-grid">
+        <div class="video-container">
+            <a href="https://youtu.be/vnBXaCsoEPU?si=DmkIk3Ir6uzbRYrU">
+            <video poster="./yoga-thumbnail-1.jpg" muted>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <div class="video-title">Video 1</div>
+            </a>
+        </div>
+        <div class="video-container">
+            <a href="https://youtu.be/uNmKzlh55Fo?si=CpKkN5IG59cbLgHP">
+            <video poster="./yoga-thumbnail-2.jpg" muted>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </a>
+            <div class="video-title">Video 2</div>
+        </div>
+            
+</div>
+
+    <script>
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerText = '🌜';
+            } else {
+                themeToggle.innerText = '🌞';
+            }
+        }
+    </script>
+</body>
+</html></video>

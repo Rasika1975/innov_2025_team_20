@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEAFIT - Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right , #bbf7d0, #22c55e);
+            
+            height: 100vh;
+            transition: background 0.3s;
+        }
+  /* Dark Mode Styling */
+        .dark-mode {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: white;
+        }
+        .dark-mode nav {
+            background: #1f2937;
+        }
+        .dark-mode .nav-links a,
+        .dark-mode .auth-buttons a,
+        .dark-mode .dark-mode-btn {
+            background: #374151;
+            color: white;
+        }
+        
+        .dark-mode h1, .dark-mode p, .dark-mode a {
+            color: white !important;
+        }
+
+/* Navbar Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Small Icons & Buttons (Matching WeCargo) */
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 6px;
+            font-size: 1.2rem; /* Smaller text */
+            border-radius: 10px;
+            background: #38a169;
+            color: white;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: #2f855a;
+        }
+
+        /* Adjusted Login Button & Dark Mode Button */
+        .auth-buttons a,
+        .dark-mode-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 6px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            background: #2d3748;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .dark-mode-btn{
+            background: none;
+            font-size: 1.5rem;
+        }
+        .auth-buttons a:hover,
+        .dark-mode-btn:hover {
+            background: #1a202c;
+        }
+
+        /* Logo (Resized & Responsive) */
+        .logo-container img {
+            height: 50px; /* Scaled down */
+            width: auto;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem; 
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+
+        .hero img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .hero a {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            background: #38a169;
+            color: white;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background: #2f855a;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="fade-in">
+        <!-- LEAFIT Logo (No Text) -->
+        <div class="logo-container">
+            <img src="leafit.jpg" alt="LEAFIT Logo"> 
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links flex space-x-2">
+            <a href="blogs.html">Blogs</a>
+            <a href="exercises.html">Exercise Plans</a>
+            <a href="nutrition.html">Nutrition Plans</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="workout2.html">Workouts</a>
+            <a href="progresstracker.html">Progress Tracker</a>
+           
+        </div>
+
+        <!-- Login & Dark Mode Toggle -->
+        <div class="auth-buttons flex space-x-2">
+            <a href="login.html">Login</a>
+            <button id="toggleDarkMode" class="dark-mode-btn">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero fade-in">
+        <h1><b>"DISCOVER.LEARN.GROW"</b></h1>
+        <p>Personalized Exercise & Diet Plans | BMI Calculator | Workouts | Blogs | Progress Tracker</p>
+         <!-- Logo expands into this space -->
+         <a id="heroButton" href="createpf.html" class="hero-btn">Create Your Profile</a>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        const toggleButton = document.getElementById('toggleDarkMode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            toggleButton.textContent = body.classList.contains('dark-mode') ? '☀' : '🌙';
+        });
+         document.addEventListener("DOMContentLoaded", function () {
+        const heroButton = document.getElementById("heroButton");
+
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            heroButton.textContent = "Create Your Profile";
+            heroButton.href = "createpf.html"; // Redirect to profile page
+        } 
+    });
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

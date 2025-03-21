@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Thumbnails</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right , #bbf7d0, #22c55e);
+            font-family: Arial, sans-serif;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.05);
+        }
+
+        .info-section {
+            background: #b7cea5;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .dark-mode {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: white;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            background: transparent;
+            font-size: 24px;
+        }
+
+        .video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .blogs-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blogs-section h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞</button>
+    <div class="info-section" style="text-align: center; padding: 20px; margin-bottom: 30px;">
+        <h2>ZUMBA</h2>
+        <p>Zumba was created in the 1990s by dancer and choreographer Beto Pérez, an aerobics instructor in Cali, Colombia. After forgetting his usual music one day, and using cassette tapes of Latin dance music (salsa and merengue) for class, Pérez began integrating the music and dancing into other classes, calling it "Rumbacize".[4][5]
+
+            In 2001, Pérez partnered with Alberto Perlman and Alberto Aghion to launch Zumba, and the trio released a series of fitness videos sold via infomercial.[6] Pérez decided on the word "Zumba" because of its similarity to the word "rumba", the Cuban musical genre. Pérez and his partner began to replace the first letter of "rumba" until they landed on "sumba", and Pérez ultimately decided to spell it with the letter 'z' because he liked the fictional character Zorro when he was a child.[7]
+            
+            In 2012, Insight Venture Partners and The Raine Group invested in the venture.[8] The company expanded into class instruction, and by 2015, according to Perlman, there were 14 million Zumba students in 186 countries</p>
+    </div>
+    <div class="blogs-section">
+    <h1 class="blogs-section h1">Reference Videos</h1>
+    <div class="video-grid">
+        <div class="video-container">
+            <a href="https://youtu.be/ka4tN6RJvgQ?si=u1JuHaZj2tE3wTu6">
+            <video poster="./zumba-thumbnail-1.jpeg" muted>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <div class="video-title">Video 1</div>
+            </a>
+        </div>
+        <div class="video-container">
+            <a href="https://youtu.be/6rsffeMsRxI?si=_6ZPxA_xmTchEo8s">
+            <video poster="./zumba-thumbnail-2.jpeg" muted>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </a>
+            <div class="video-title">Video 2</div>
+        </div>
+  
+    </div>
+</div>
+
+    <script>
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerText = '🌜';
+            } else {
+                themeToggle.innerText = '🌞';
+            }
+        }
+    </script>
+</body>
+</html></video>

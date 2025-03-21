@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            background: linear-gradient(to right , #bbf7d0, #22c55e);
+        }
+
+        .blogs-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blogs-section h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .dark-mode {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+
+        .dark-mode .blog-card {
+            background: #2d2d2d;
+            border-color: #444;
+        }
+
+        .dark-mode .blog-card h2 {
+            color: #fff;
+        }
+
+        .dark-mode .h1 {
+            color: #fff;
+        }
+
+        .dark-mode .blog-card p {
+            color: #ccc;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: #1a9e4b;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞</button>
+    <div class="blogs-section">
+        <h1 class="h1">Our Blogs</h1>
+        <div class="blog-card">
+            <h2>Blog Title 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel nisi id odio tincidunt tincidunt.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="blog-card">
+            <h2>Blog Title 2</h2>
+            <p>Curabitur ac lacus nec lorem tincidunt tincidunt. Integer vel risus nec justo facilisis vehicula.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="blog-card">
+            <h2>Blog Title 3</h2>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerText = '🌜';
+            } else {
+                themeToggle.innerText = '🌞';
+            }
+        }
+    </script>
+</body>
+</html>

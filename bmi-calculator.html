@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right , #bbf7d0, #22c55e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.3s;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .container input, .container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .dark-mode {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: #fff;
+        }
+        .dark-mode .container {
+            background-color: #444;
+            color: #fff;
+        }
+        .dark-mode .container input, .dark-mode .container select {
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #666;
+        }
+        .dark-mode .container button {
+            background-color: #555;
+        }
+        .dark-mode .container button:hover {
+            background-color: #666;
+        }
+       
+    </style>
+     
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞</button>
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        
+        <label for="unit">Unit</label>
+        <select id="unit" name="unit" required>
+            <option value="metric">Metric (kg, cm)</option>
+            <option value="us">US (lbs, inches)</option>
+        </select>
+        
+        <label for="height">Height</label>
+        <input type="number" id="height" name="height" required>
+        
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" name="weight" required>
+        
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+       
+        function calculateBMI() {
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const unit = document.getElementById('unit').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            let bmi;
+
+            if (unit === 'metric') {
+                bmi = weight / ((height / 100) ** 2);
+            } else {
+                bmi = (weight / (height ** 2)) * 703;
+            }
+
+            document.getElementById('result').innerHTML = `Your BMI is ${bmi.toFixed(2)}`;
+            
+            // Update chart with user's BMI
+            bmiChart.data.datasets[0].data = [18.5, 24.9, 29.9, bmi];
+            bmiChart.update();
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerText = '🌜';
+            } else {
+                themeToggle.innerText = '🌞';
+            }
+        }
+    </script>
+</body>
+</html>
